@@ -92,9 +92,11 @@ COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 COPY --from=builder /usr/local/bin/composer /usr/local/bin/composer
 COPY --from=builder /opt/devtools /opt/devtools
 
-# Symlinks de test tools en PATH (fallback para proyectos con vendor hardcodeado)
-RUN ln -s /opt/devtools/vendor/bin/codecept /usr/local/bin/codecept && \
-    ln -s /opt/devtools/vendor/bin/phpunit   /usr/local/bin/phpunit
+# Symlink de PHPUnit en PATH (fallback para proyectos con vendor hardcodeado)
+# Nota: Codeception no se incluye en PHP 7.0 — sus dependencias symfony usan
+# nullable types (?Type) que requieren PHP 7.1+, incompatibles con PHP 7.0.33.
+# Para testing con Codeception en PHP 7, usá el vendor del proyecto consumidor.
+RUN ln -s /opt/devtools/vendor/bin/phpunit /usr/local/bin/phpunit
 
 # Scripts CI/CD en PATH (lint.sh, zip.sh — usados desde bitbucket-pipelines y similares)
 COPY cicd/lint.sh cicd/zip.sh /usr/local/bin/
