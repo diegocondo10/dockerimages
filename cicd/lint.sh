@@ -24,6 +24,8 @@ exclude_args=()
 
 if [ -f "$ignore_file" ]; then
     while IFS= read -r pattern || [ -n "$pattern" ]; do
+        # Strip carriage returns (CRLF-safe para archivos editados en Windows)
+        pattern="${pattern//$'\r'/}"
         # Ignorar líneas vacías o comentarios
         [[ -z "$pattern" || "$pattern" =~ ^# ]] && continue
         exclude_args+=(-not -path "./$pattern*")
