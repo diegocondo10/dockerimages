@@ -1,0 +1,22 @@
+{
+  "name": "libelulasoft/devtools-php8",
+  "description": "Dev tools pre-instalados en la imagen base PHP 8.0.30 (Codeception + PHPUnit) para facilitar testing en proyectos consumidores",
+  "require": {
+    "php": "~8.0.30",
+    "phpunit/phpunit": "^9.6",
+    "codeception/codeception": "^5.0",
+    "codeception/module-asserts": "^3.0",
+    "codeception/module-yii2": "^1.1",
+    "codeception/module-phpbrowser": "^3.0",
+    "codeception/module-db": "^3.0"
+  },
+  "config": {
+    "bin-dir": "vendor/bin",
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "codeception/c3": true
+    }
+  },
+  "minimum-stability": "stable"
+}

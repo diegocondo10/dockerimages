@@ -1,0 +1,12 @@
+# Ignorar todo por defecto
+**
+
+# Permitir los scripts cicd (copiados en ambas imágenes)
+!cicd/
+!cicd/**
+
+# Permitir cada stage según el Dockerfile que se esté buildeando
+!php7.0.33/
+!php7.0.33/**
+!php8.0.30/
+!php8.0.30/**
