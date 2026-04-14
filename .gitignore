@@ -1,0 +1,20 @@
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker build cache (local artifacts, never commit)
+.docker/
+
+# Env overrides
+.env
+.env.local
