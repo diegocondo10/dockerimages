@@ -1,0 +1,12 @@
+# Forzar LF en scripts shell — crítico para ejecución en contenedores Linux
+*.sh text eol=lf
+
+# Dockerfiles con LF
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+
+# Resto de archivos de texto con manejo automático
+*.md text
+*.json text
+*.yml text
+*.yaml text
