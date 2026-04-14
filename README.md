@@ -78,10 +78,12 @@ Para proyectos con `vendor/` hardcodeado (como los proyectos PHP 7 legacy sin `c
 
 | Binario | PHP 7 | PHP 8 |
 |---|---|---|
-| `codecept` | Codeception 4.1 | Codeception 5 |
-| `phpunit` | PHPUnit 6.5 | PHPUnit 9 |
+| `codecept` | — *(ver nota)* | Codeception 5.1 |
+| `phpunit` | PHPUnit 6.5 | PHPUnit 9.6 |
 
-Módulos pre-instalados: `module-asserts`, `module-yii2`, `module-phpbrowser`, `module-db`.
+Módulos PHP 8 pre-instalados: `module-asserts`, `module-yii2`, `module-phpbrowser`, `module-db`.
+
+> **PHP 7 — Codeception no incluido**: Codeception 4.1 depende transitivamente de `symfony/polyfill-php80`, que usa nullable types (`?Type`) introducidos en PHP 7.1. PHP 7.0.33 no puede parsear ese código aunque `--ignore-platform-reqs` permita instalarlo. Para Codeception en proyectos PHP 7, instalala en el vendor del proyecto con una versión compatible o usá la imagen PHP 8.
 
 ```bash
 # Desde dentro del contenedor (CWD = /var/www/html)
