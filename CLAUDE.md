@@ -17,22 +17,23 @@ Ambas incluyen: GD, SOAP, ZIP, BCMath, MongoDB, ImageMagick, Composer 2, Apache 
 
 ## Comandos de build y publicación
 
+> **El build context es el repo root** — siempre desde `C:\Proyectos\docker\`, no desde dentro de la carpeta de cada imagen.
+
 ```bash
 # PHP 7.0.33
-cd php7.0.33
-docker build -t libelulasoft/php7033:1.1 .
-docker tag libelulasoft/php7033:1.1 libelulasoft/php7033:latest
+docker build -t libelulasoft/php7033:2.0.0 -t libelulasoft/php7033:2 -f php7.0.33/Dockerfile .
+
+# PHP 8.0.30
+docker build -t libelulasoft/php8030:2.0.0 -t libelulasoft/php8030:2 -f php8.0.30/Dockerfile .
+
+# Sin Xdebug (ambas imágenes soportan ARG ENABLE_XDEBUG=false)
+docker build --build-arg ENABLE_XDEBUG=false -t libelulasoft/php7033:2-noxdebug -f php7.0.33/Dockerfile .
+
+# Publicar (ver README.md para el flujo completo de rollout con :1-legacy)
+docker tag libelulasoft/php7033:2 libelulasoft/php7033:latest
+docker push libelulasoft/php7033:2.0.0
+docker push libelulasoft/php7033:2
 docker push libelulasoft/php7033:latest
-
-# PHP 8.0.30 (Xdebug habilitado por defecto)
-cd php8.0.30
-docker build -t libelulasoft/php8030:1 .
-
-# PHP 8.0.30 sin Xdebug
-docker build --build-arg ENABLE_XDEBUG=false -t libelulasoft/php8030:1 .
-
-docker tag libelulasoft/php8030:1 libelulasoft/php8030:latest
-docker push libelulasoft/php8030:latest
 ```
 
 ## Consideraciones clave
