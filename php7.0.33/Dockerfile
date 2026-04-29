@@ -98,6 +98,13 @@ COPY --from=builder /opt/devtools /opt/devtools
 # Para testing con Codeception en PHP 7, usá el vendor del proyecto consumidor.
 RUN ln -s /opt/devtools/vendor/bin/phpunit /usr/local/bin/phpunit
 
+# Autoload global de devtools — permite "use" de librerías instaladas en
+# /opt/devtools/vendor sin tocar el composer del proyecto consumidor.
+# El proyecto puede luego hacer su propio require 'vendor/autoload.php' encima.
+# Override por invocación: php -d auto_prepend_file= script.php
+RUN echo 'auto_prepend_file=/opt/devtools/vendor/autoload.php' \
+    > /usr/local/etc/php/conf.d/zz-devtools-autoload.ini
+
 # Scripts CI/CD en PATH (lint.sh, zip.sh — usados desde bitbucket-pipelines y similares)
 COPY cicd/lint.sh cicd/zip.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/lint.sh /usr/local/bin/zip.sh

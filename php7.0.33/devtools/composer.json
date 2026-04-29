@@ -3,7 +3,8 @@
   "description": "Dev tools pre-instalados en la imagen base PHP 7.0.33 para proyectos con vendor hardcodeado",
   "require": {
     "php": ">=7.0",
-    "phpunit/phpunit": "^6.5"
+    "phpunit/phpunit": "^6.5",
+    "vlucas/phpdotenv": "^4.0"
   },
   "config": {
     "bin-dir": "vendor/bin",
