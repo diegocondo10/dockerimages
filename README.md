@@ -14,7 +14,7 @@ Ambas comparten extensiones (`gd`, `soap`, `zip`, `bcmath`, `mongodb`, `imagick`
 | Directorio | DEV | PROD | PHP |
 |---|---|---|---|
 | `php7.0.33/` | `libelulasoft/php7033-dev` | `libelulasoft/php7033-prod` | 7.0.33 (Debian Stretch) |
-| `php8.0.30/` | `libelulasoft/php8030` *(refactor pendiente)* | — | 8.0.30 |
+| `php8.0.30/` | `libelulasoft/php8030-dev` | `libelulasoft/php8030-prod` | 8.0.30 (Debian Bullseye) |
 
 ---
 

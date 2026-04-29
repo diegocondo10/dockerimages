@@ -18,7 +18,7 @@ A partir de la refactorización 2.1.0, cada versión de PHP expone **dos imágen
 | Directorio | Tag DEV | Tag PROD | PHP |
 |---|---|---|---|
 | `php7.0.33/` | `libelulasoft/php7033-dev` | `libelulasoft/php7033-prod` | 7.0 (Debian Stretch archivado) |
-| `php8.0.30/` | `libelulasoft/php8030` *(pendiente refactor multi-target)* | — | 8.0 |
+| `php8.0.30/` | `libelulasoft/php8030-dev` | `libelulasoft/php8030-prod` | 8.0 (Debian Bullseye) |
 
 Extensiones comunes: GD, SOAP, ZIP, BCMath, MongoDB, ImageMagick, Apache mod_rewrite. La imagen `-dev` además trae Xdebug y Composer.
 
